@@ -1,0 +1,34 @@
+PageLayout:
+	BoxLayout:
+		canvas:
+            Color:
+                rgb: 0,0,0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+		BoxLayout:
+			size_hint:1, 0.2
+			orientation: 'horizontal'
+			Button:
+				text: 'Run'
+				size_hint: 1, 1
+				on_press: results.text=app.exec_code(code.text)
+			Button:
+				text: 'Exit'
+				size_hint: 1, 1
+				on_press: app.stop()
+		TextInput:
+			id: code
+	BoxLayout:
+		orientation: 'vertical'
+		canvas:
+            Color:
+                rgb:0,0,0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+		TextInput:
+			text: ''
+			size_hint: 1,0.5
+			id: results
